@@ -87,14 +87,15 @@ def evaluate_model(model, tokenizer, dataset='train_data/test.json', batch_size=
                     output_logits=True,
                     return_dict_in_generate=True
                 )
-            
         # Move tensors to CPU immediately
         logits = outputs.logits
         logits = torch.stack(logits)
         logits = einops.rearrange(logits, 's b h -> b s h')
-        tokens = logits.argmax(dim=-1)
-        top_logits = logits.topk(k=5, dim=-1).indices.cpu().tolist()
-        top_logit_values = logits.topk(k=5, dim=-1).values.cpu().tolist()
+        probs = torch.softmax(logits, dim=-1)
+        tokens = probs.argmax(dim=-1)
+        top_probs = probs.topk(k=5, dim=-1)
+        top_tokens = top_probs.indices.cpu().tolist()
+        top_prob_values = top_probs.values.cpu().tolist()
         
         # Convert to CPU and lists before deletion
         # batch_logits = logits.cpu().tolist()
@@ -104,8 +105,8 @@ def evaluate_model(model, tokenizer, dataset='train_data/test.json', batch_size=
         # Extend results
         predictions.extend(batch_preds)
         labels.extend(batch_labels)
-        all_logits.extend(top_logits)
-        all_logit_values.extend(top_logit_values)
+        all_logits.extend(top_tokens)
+        all_logit_values.extend(top_prob_values)
         # Clear memory
         del outputs
         del logits
@@ -147,6 +148,7 @@ def main(model_name, overwrite=False):
 if __name__ == "__main__":
     #model_names = 'llama-3.1-8b', 'llama-3.2-1b', 'qlora-llama-3.1-8b', 'qlora-llama-3.2-1b'
     model_names = model_paths.keys()
+    model_names = ['qlora-llama-3.2-3b']
     for model_name in model_names:
         # if 'qlora' not in model_name:
         #     continue

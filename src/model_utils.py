@@ -1,8 +1,9 @@
 model_paths = {
+    'qlora-llama-3.2-3b': '/scratch/gpfs/vv7118/projects/finetuning-folktexts/output/3b_qlora_single_device/epoch_0/',
     'qlora-llama-3.2-3b-instruct': '/scratch/gpfs/vv7118/projects/finetuning-folktexts/output/3b_qlora_single_device_instruct/epoch_0/',
     'llama-3.1-8b': '/scratch/gpfs/vv7118/models/hub/models--meta-llama--Meta-Llama-3-8B/snapshots/62bd457b6fe961a42a631306577e622c83876cb6/',
     'llama-3.2-1b-instruct': '/scratch/gpfs/vv7118/models/hub/models--meta-llama--Llama-3.2-1B-Instruct/snapshots/9213176726f574b556790deb65791e0c5aa438b6',
-    'llama-3.2-8b-instruct': '/scratch/gpfs/vv7118/models/hub/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659',
+    'llama-3.1-8b-instruct': '/scratch/gpfs/vv7118/models/hub/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659',
     'llama-3.2-1b': '/scratch/gpfs/vv7118/models/hub/models--meta-llama--Llama-3.2-1B/snapshots/4e20de362430cd3b72f300e6b0f18e50e7166e08/',
     'llama-3.2-3b': '/scratch/gpfs/vv7118/models/hub/models--meta-llama--Llama-3.2-3B/snapshots/13afe5124825b4f3751f836b40dafda64c1ed062',
     'llama-3.2-3b-instruct': '/scratch/gpfs/vv7118/models/hub/models--meta-llama--Llama-3.2-3B-Instruct/snapshots/0cb88a4f764b7a12671c53f0838cd831a0843b95/',
@@ -11,6 +12,6 @@ model_paths = {
     'qlora-llama-3.2-1b-instruct': '/scratch/gpfs/vv7118/projects/finetuning-folktexts/output/1b_qlora_single_device_instruct/epoch_0',
     'qlora-llama-3.1-8b-instruct': '/scratch/gpfs/vv7118/projects/finetuning-folktexts/output/8b_qlora_single_device_instruct/epoch_0/',
     'qlora-llama-3.1-3b-instruct-full': '/scratch/gpfs/vv7118/projects/finetuning-folktexts/output/3b_qlora_single_device_instruct-full/epoch_0/',
-    'qlora-llama-3.2-3b': '/scratch/gpfs/vv7118/projects/finetuning-folktexts/output/3b_qlora_single_device/epoch_0/',
+    # 'qlora-llama-3.2-3b': '/scratch/gpfs/vv7118/projects/finetuning-folktexts/output/3b_qlora_single_device/epoch_0/',
     '3b_qlora_single_device_instruct-reinit': '/scratch/gpfs/vv7118/projects/finetuning-folktexts/output/3b_qlora_single_device_instruct-reinit/epoch_0/',
 }
