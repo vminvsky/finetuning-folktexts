@@ -1,3 +1,63 @@
+# Finetuning Folktexts 
+
+This is a repository for finetuning folktexts. 
+
+## Setup 
+
+```bash
+pip install -r requirements.txt
+```
+
+## Preparing the data 
+
+Since torchtexts library is not meant for finetuning, we need to modify it a little bit. 
+
+```bash
+python src/prompts.py
+```
+
+This will create a `train_data` directory with the data in it. 
+
+
+## Finetuning a model
+
+We use the `torchtune` library to finetune a model. 
+
+In `configs/`, we have the different configs for finetuning the model. 
+
+The most relevant keys are: 
+
+- `output_dir`: the directory to save the finetuned model. 
+- `checkpointer.checkpoint_dir`: the directory to the pretrained model weights. 
+- `dataset.source`: the directory to the data. 
+- `train_on_input`: whether to train on the input or the output. 
+- `conversation_style`: the style of the conversation check here for information [here](https://pytorch.org/torchtune/0.3/basics/chat_datasets.html).
+
+There are a few important things that can affect finetuning:
+
+- do we finetune on all data yay or nay. 
+- do we do full finetuning or lora
+- is the data chat or not. 
+
+## Evaluating the model
+
+```bash
+python src/test_model.py
+```
+
+This will evaluate the model on the test set. 
+
+NOTE: the model should actually probably evaluated using the underlying folktexts library.
+
+Checkout `basic setup` [here](https://github.com/socialfoundations/folktexts/tree/main)
+
+
+
+
+# OLD
+
+
+
 # TODO
 
 - [x] integrate prompt construction from folktexts 
